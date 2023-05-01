@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <title>Broken Dreams</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      .product-page__price {
+        font-size: 1.2rem;
+        color: #444;
+        margin-bottom: 0.5rem;
+      }
+      .product-page__price__total {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#home">Startseite</a></li>
+          <li><a href="#products">Produkte</a></li>
+          <li><a href="#about">Über uns</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+  
+    <main>
+      <div class="product-page">
+        <div class="product-page__image">
+          <img src="https://www.tischlerei-meusburger.at/thumbs/architektur-handwerk/gerold-strehle/strehle_portrait-a-lamprecht-web-766x1037-q65.jpg" alt="Gerold Strehle">
+        </div>
+        <div class="product-page__info">
+          <h1 class="product-page__title">Broken Dreams Kaugummi</h1>
+          <p class="product-page__description">Ein Kaugummi, der dir den Geschmack von gebrochenen Träumen gibt.</p>
+          <div class="product-page__price">
+            Preis pro Stück: 2.99 €
+          </div>
+          <form>
+            <label for="quantity">Menge:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1">
+            <div class="product-page__price">
+              Gesamtpreis: <span id="total-price" class="product-page__price__total">2.99 €</span>
+            </div>
+            <button type="submit" class="product-page__add-to-cart">In den Warenkorb legen</button>
+          </form>
+        </div>
+      </div>
+    </main>
+  
+    <footer>
+      <p>&copy; 2023 <a href="#">Impressum</a></p>
+    </footer>
+
+    <script>
+      const quantityInput = document.getElementById('quantity');
+      const totalPriceElement = document.getElementById('total-price');
+      const unitPrice = 2.99;
+
+      quantityInput.addEventListener('input', () => {
+        const quantity = quantityInput.value;
+        const totalPrice = unitPrice * quantity;
+        totalPriceElement.innerText = totalPrice.toFixed(2) + ' €';
+      });
+    </script>
+  </body>
+</html>
